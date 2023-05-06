@@ -1,11 +1,11 @@
 import streamlit as st
 
 st.write("""<p style='margin:0in;font-size:16px;font-family:"Calibri",sans-serif;'>
-    <span style='font-size:27px;font-family:"Arial",sans-serif;'>Resources For Building Advanced City Growth Models &nbsp;</span>
+    <span style='font-size:27px;font-family:"Arial",sans-serif;'>Resources For Building Advanced City Growth Models: &nbsp;</span>
     <span style='font-size:15px;font-family:"Arial",sans-serif;'>
         <br>&nbsp;
     </span>
-    <span style='font-size:27px;font-family:"Arial",sans-serif;'>:</span>
+    <span style='font-size:27px;font-family:"Arial",sans-serif;'></span>
 </p>
 <p style='margin:0in;font-size:16px;font-family:"Calibri",sans-serif;'>
     <strong>&nbsp;</strong>
