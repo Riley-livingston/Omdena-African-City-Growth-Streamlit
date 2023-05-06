@@ -9,7 +9,7 @@ import json
 # Environmental Monitoring Dashboard
 '''
 
-api_key = "3cbbcf145d5897e0b33b572a78f1a0c5"
+api_key = "api_key"
 url_city = 'http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=5&appid={api_key}'
 url_air = 'http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={api_key}'
 
