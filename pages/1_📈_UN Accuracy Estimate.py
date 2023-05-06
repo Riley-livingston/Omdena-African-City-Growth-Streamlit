@@ -1,5 +1,9 @@
 import streamlit as st
 import streamlit.components.v1 as components
+import requests 
+
+html_1 = 'https://raw.githubusercontent.com/your_username/your_repository/main/pages/Prediction%20Error%20vs%20Population%20Prediction.html'
+html
 
 st.header("How reliable are the UN Population Predictions")
 st.subheader('Typical Error Estimate:')
@@ -24,7 +28,7 @@ st.subheader('Prediction Errors Visualised')
 labels = ["Prediction Error vs Population Prediction", "UN Population Prediction vs Recent Population Estimate"]
 options = st.selectbox("Select Error Visualisation",labels)
 if options == 'Prediction Error vs Population Prediction':
-   HtmlFile1 = open("Prediction Error vs Population Prediction.html", 'r', encoding='utf-8')
+   HtmlFile1 = open(html_1, 'r', encoding='utf-8')
    st.markdown('_This plot shows the percentage error in each UN prediction we tested. This error is plotted against the population that was predicted. We have highlighted the 20% and 20% - 30% error regions and show that most observations fall into the 20% region, some fall into the 20 - 30% region and very few lie outside this range._')
    source_code1 = HtmlFile1.read() 
    components.html(source_code1,height = 600,width=1000)
