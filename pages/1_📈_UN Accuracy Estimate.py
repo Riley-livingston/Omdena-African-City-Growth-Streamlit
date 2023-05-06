@@ -3,7 +3,6 @@ import streamlit.components.v1 as components
 import requests 
 
 html_1 = 'https://raw.githubusercontent.com/your_username/your_repository/main/pages/Prediction%20Error%20vs%20Population%20Prediction.html'
-html
 
 st.header("How reliable are the UN Population Predictions")
 st.subheader('Typical Error Estimate:')
