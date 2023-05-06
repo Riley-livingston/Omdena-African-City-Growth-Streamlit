@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import requests
 
-html_1 = 'https://raw.githubusercontent.com/Riley-livingston/temporary_streamlit_1/main/pages/Prediction%20Error%20vs%20Population%20Prediction.html?token=GHSAT0AAAAAAB5DZJSIC46M2JBXAN5EXVIWZCWRRHQ'
+html_1 = 'https://riley-livingston.github.io/temporary_streamlit_1/pages/Prediction Error vs Population Prediction.html'
 html_2 = 'https://riley-livingston.github.io/temporary_streamlit_1/pages/UN Predicted Population3 vs Measured Population.html'
 html_3 = 'https://riley-livingston.github.io/temporary_streamlit_1/pages/compare_un_to_census.html'
 
@@ -51,7 +51,6 @@ if options == 'UN Population Prediction vs Recent Population Estimate':
         source_code2 = response.text
    else:
         source_code2 = "Error loading the HTML file. Please check the URL."
-   source_code2 = HtmlFile2.read()
    components.html(source_code2,height = 600,width=1000)
    st.markdown('_*The 30% error region is not symmetric over the blue perfect prediction line. This is unintuitive but is not a mistake. It is because the percentage error is calculated by dividing by the UN population estimate, which is on the y axis._')
 
