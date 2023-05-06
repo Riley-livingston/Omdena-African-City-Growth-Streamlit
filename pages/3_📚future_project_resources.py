@@ -123,8 +123,7 @@ st.write("""<p style='margin:0in;font-size:16px;font-family:"Calibri",sans-serif
         &nbsp;of the UN prediction or less. For example, if the UN population prediction was 400,000 then the typical error will be <strong>20%</strong>
         of <strong>400,000</strong>
         or less which is <strong>80,000 or fewer</strong>
-        . This seems like a large error, especially if you a relying on these figures for city planning.&nbsp;
-    </span>
+        . This seems like a large error, especially if you a relying on these figures for city planning.&nbsp;</span>
 </p>
 <p style='margin:0in;font-size:16px;font-family:"Calibri",sans-serif;'>
     <span style='font-family:"Source Sans Pro",sans-serif;color:black;background:white;'>&nbsp;</span>
