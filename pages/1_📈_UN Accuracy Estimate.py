@@ -21,7 +21,7 @@ st.markdown('- <span style="font-weight:bold">Population Projections</span> - Ar
 
 st.markdown('We estimated the typical error in the UN city population estimates by comparing the UN’s population predictions to the city population estimates made since 2018.',unsafe_allow_html=True)
 if st.button('Click here to view our full analysis'):   
-    resposne = requests.get(html_3)
+    response = requests.get(html_3)
     if response.status_code == 200:
         source_code3 = response.text
     else:
