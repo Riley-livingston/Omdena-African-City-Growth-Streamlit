@@ -1,7 +1,10 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import requests
+
 html_1 = 'https://raw.githubusercontent.com/Riley-livingston/temporary_streamlit_1/main/pages/Prediction%20Error%20vs%20Population%20Prediction.html?token=GHSAT0AAAAAAB5DZJSIC46M2JBXAN5EXVIWZCWRRHQ'
+html_2 = 'https://raw.githubusercontent.com/Riley-livingston/temporary_streamlit_1/main/pages/UN%20Predicted%20Population3%20vs%20Measured%20Population.html?token=GHSAT0AAAAAAB5DZJSIUJL2QWU4M7DOUSVMZCWRVWA'
+html_3 = 'https://raw.githubusercontent.com/Riley-livingston/temporary_streamlit_1/main/pages/compare_un_to_census.html?token=GHSAT0AAAAAAB5DZJSIU32XABOH36BX5DHEZCWRZYQ'
 
 st.header("How reliable are the UN Population Predictions")
 st.subheader('Typical Error Estimate:')
@@ -18,9 +21,12 @@ st.markdown('- <span style="font-weight:bold">Population Projections</span> - Ar
 
 st.markdown('We estimated the typical error in the UN city population estimates by comparing the UN’s population predictions to the city population estimates made since 2018.',unsafe_allow_html=True)
 if st.button('Click here to view our full analysis'):   
-    HtmlFile3 = open('compare_un_to_census.html','r',encoding='utf-8')
-    source_code3 = HtmlFile3.read()
-    components.html(source_code3,height=700,width = 1000,scrolling=True)
+    resposne = requests.get(html_3)
+    if response.status_code == 200:
+        source_code3 = response.text
+    else:
+        source_code3 = "Error loading the HTML file. Please check the URL."
+    components.html(source_code3, height=700, width=1000, scrolling=True)
     st.checkbox("Hide",True)
 st.subheader('Prediction Errors Visualised')
 labels = ["Prediction Error vs Population Prediction", "UN Population Prediction vs Recent Population Estimate"]
@@ -39,7 +45,11 @@ if options == 'UN Population Prediction vs Recent Population Estimate':
 
    st.markdown('_We have Shaded the 30% error region - any points lying outside this shaded region have an error larger than 30%. Most points lie within this region._')
    st.markdown('_**Please note** - you need to zoom in by clicking and dragging on the plot to see more detail._')
-   HtmlFile2 = open('UN Predicted Population3 vs Measured Population.html','r')
+   response = requests.get(html_2)
+   if response.status_code == 200:
+        source_code2 = response.text
+   else:
+        source_code2 = "Error loading the HTML file. Please check the URL."
    source_code2 = HtmlFile2.read()
    components.html(source_code2,height = 600,width=1000)
    st.markdown('_*The 30% error region is not symmetric over the blue perfect prediction line. This is unintuitive but is not a mistake. It is because the percentage error is calculated by dividing by the UN population estimate, which is on the y axis._')
