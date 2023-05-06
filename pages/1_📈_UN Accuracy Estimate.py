@@ -4,7 +4,7 @@ import requests
 
 html_1 = 'https://raw.githubusercontent.com/Riley-livingston/temporary_streamlit_1/main/pages/Prediction%20Error%20vs%20Population%20Prediction.html?token=GHSAT0AAAAAAB5DZJSIC46M2JBXAN5EXVIWZCWRRHQ'
 html_2 = 'https://raw.githubusercontent.com/Riley-livingston/temporary_streamlit_1/main/pages/UN%20Predicted%20Population3%20vs%20Measured%20Population.html?token=GHSAT0AAAAAAB5DZJSIUJL2QWU4M7DOUSVMZCWRVWA'
-html_3 = 'https://raw.githubusercontent.com/Riley-livingston/temporary_streamlit_1/main/pages/compare_un_to_census.html?token=GHSAT0AAAAAAB5DZJSIU32XABOH36BX5DHEZCWRZYQ'
+html_3 = 'https://github.com/Riley-livingston/temporary_streamlit_1/raw/main/pages/compare_un_to_census.html'
 
 st.header("How reliable are the UN Population Predictions")
 st.subheader('Typical Error Estimate:')
