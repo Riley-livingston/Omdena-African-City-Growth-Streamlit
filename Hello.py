@@ -5,8 +5,8 @@ st.set_page_config(
     page_icon="👋",
 )
 
-st.write("#Predictive Urban Growth and Planning in African Cities")
-st.write('###Omdena - Nairobi, Kenya Chapter')
+st.write("# Predictive Urban Growth and Planning in African Cities")
+st.write('### Omdena - Nairobi, Kenya Chapter')
 
 st.sidebar.success("Select a Demo above.")
 
