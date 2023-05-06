@@ -28,10 +28,10 @@ labels = ["Prediction Error vs Population Prediction", "UN Population Prediction
 options = st.selectbox("Select Error Visualisation",labels)
 if options == 'Prediction Error vs Population Prediction':
       response = requests.get(html_1)
-        if response.status_code == 200:
-            source_code1 = response.text
-        else:
-            source_code1 = "Error loading the HTML file. Please check the URL."
+      if response.status_code == 200:
+        source_code1 = response.text
+      else:
+        source_code1 = "Error loading the HTML file. Please check the URL."
         components.html(source_code1, height=600, width=1000)
   
    st.markdown('_This plot shows the percentage error in each UN prediction we tested. This error is plotted against the population that was predicted. We have highlighted the 20% and 20% - 30% error regions and show that most observations fall into the 20% region, some fall into the 20 - 30% region and very few lie outside this range._')
