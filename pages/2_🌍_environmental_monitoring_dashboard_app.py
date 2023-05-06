@@ -3,7 +3,6 @@ import requests
 from datetime import datetime
 import pandas as pd
 import json
-import plotly.express as px 
 
 
 '''
