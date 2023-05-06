@@ -1,8 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import requests 
-
-html_1 = 'https://raw.githubusercontent.com/your_username/your_repository/main/pages/Prediction%20Error%20vs%20Population%20Prediction.html'
+import requests
+html_1 = 'https://raw.githubusercontent.com/Riley-livingston/temporary_streamlit_1/main/pages/Prediction%20Error%20vs%20Population%20Prediction.html?token=GHSAT0AAAAAAB5DZJSIC46M2JBXAN5EXVIWZCWRRHQ'
 
 st.header("How reliable are the UN Population Predictions")
 st.subheader('Typical Error Estimate:')
@@ -27,16 +26,12 @@ st.subheader('Prediction Errors Visualised')
 labels = ["Prediction Error vs Population Prediction", "UN Population Prediction vs Recent Population Estimate"]
 options = st.selectbox("Select Error Visualisation",labels)
 if options == 'Prediction Error vs Population Prediction':
-      response = requests.get(html_1)
-      if response.status_code == 200:
-        source_code1 = response.text
-      else:
+   response = requests.get(html_1)
+   if response.status_code == 200:
+        source_code1= response.text
+   else:
         source_code1 = "Error loading the HTML file. Please check the URL."
         components.html(source_code1, height=600, width=1000)
-  
-    st.markdown('_This plot shows the percentage error in each UN prediction we tested. This error is plotted against the population that was predicted. We have highlighted the 20% and 20% - 30% error regions and show that most observations fall into the 20% region, some fall into the 20 - 30% region and very few lie outside this range._')
-    source_code1 = HtmlFile1.read() 
-    components.html(source_code1,height = 600,width=1000)
 
 if options == 'UN Population Prediction vs Recent Population Estimate':
    st.markdown('_Here we plot the UN population prediction against the recently estimated population for every city we tested. Perfect predictions (where the UN population exactly equals the recently estimated population) would lie along the blue line. The vertical distance between the blue line and the point is the error in the prediction. Points above the line represent over-estimates and points below represent under-estimates._')
@@ -52,4 +47,3 @@ if options == 'UN Population Prediction vs Recent Population Estimate':
 st.subheader("Data Sources")
 st.markdown("- Recent City Population Estimates provided by Thomas Brinkhoff: City Population (http://www.citypopulation.de)")
 st.markdown("- UN City Population Predictions taken from 2018 Revision of World Urbanization Prospects (https://population.un.org/wup/)")
-
