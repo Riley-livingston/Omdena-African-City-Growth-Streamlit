@@ -3,7 +3,7 @@ import streamlit.components.v1 as components
 import requests
 
 html_1 = 'https://raw.githubusercontent.com/Riley-livingston/temporary_streamlit_1/main/pages/Prediction%20Error%20vs%20Population%20Prediction.html?token=GHSAT0AAAAAAB5DZJSIC46M2JBXAN5EXVIWZCWRRHQ'
-html_2 = 'https://raw.githubusercontent.com/Riley-livingston/temporary_streamlit_1/main/pages/UN%20Predicted%20Population3%20vs%20Measured%20Population.html?token=GHSAT0AAAAAAB5DZJSIUJL2QWU4M7DOUSVMZCWRVWA'
+html_2 = 'https://riley-livingston.github.io/temporary_streamlit_1/pages/UN Predicted Population3 vs Measured Population.html'
 html_3 = 'https://riley-livingston.github.io/temporary_streamlit_1/pages/compare_un_to_census.html'
 
 st.header("How reliable are the UN Population Predictions")
