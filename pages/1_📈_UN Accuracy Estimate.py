@@ -38,7 +38,7 @@ if options == 'Prediction Error vs Population Prediction':
         source_code1= response.text
    else:
         source_code1 = "Error loading the HTML file. Please check the URL."
-        components.html(source_code1, height=600, width=1000)
+   components.html(source_code1, height=600, width=1000)
 
 if options == 'UN Population Prediction vs Recent Population Estimate':
    st.markdown('_Here we plot the UN population prediction against the recently estimated population for every city we tested. Perfect predictions (where the UN population exactly equals the recently estimated population) would lie along the blue line. The vertical distance between the blue line and the point is the error in the prediction. Points above the line represent over-estimates and points below represent under-estimates._')
