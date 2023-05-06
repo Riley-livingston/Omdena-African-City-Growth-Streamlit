@@ -26,8 +26,8 @@ if st.button('Click here to view our full analysis'):
         source_code3 = response.text
     else:
         source_code3 = "Error loading the HTML file. Please check the URL."
-    components.html(source_code3, height=700, width=1000, scrolling=True)
-    st.checkbox("Hide",True)
+        components.html(source_code3, height=700, width=1000, scrolling=True)
+        st.checkbox("Hide",True)
 st.subheader('Prediction Errors Visualised')
 labels = ["Prediction Error vs Population Prediction", "UN Population Prediction vs Recent Population Estimate"]
 options = st.selectbox("Select Error Visualisation",labels)
