@@ -9,6 +9,7 @@ import plotly.express as px
 '''
 # Environmental Monitoring Dashboard
 '''
+st.markdown('Get real time air quality data anywhere in the world by providing a **city name** or **latitude / longitude** coordinate below.<br><br>We provide a basic Air Quality Index and a breakdown of the levels of polluting gases, such as Carbon monoxide (CO), Nitrogen monoxide (NO), Nitrogen dioxide (NO<sub>2</sub>), Ozone (O<sub>3</sub>), Sulphur dioxide (SO<sub>2</sub>), Ammonia (NH<sub>3</sub>), and particulates (PM<sub>2.5</sub> and PM<sub>10</sub>). This dashboard is powered by <a href="https://openweathermap.org/api">openweathermap</a>.', unsafe_allow_html=True)
 
 #api_key = st.secrets['api_key']
 api_key = '3cbbcf145d5897e0b33b572a78f1a0c5'
@@ -27,12 +28,9 @@ else:
     lat = st.number_input("Latitude in decimal degrees", -1.2833300)
     lon = st.number_input("Longitude in decimal degrees", 36.8166700)
 
-'''
-### Once you have set the inputs above, click the button below to recieve air quality.
-'''
 aqi_dict = {1: 'Good', 2: 'Fair', 3: 'Moderate', 4: 'Poor', 5: 'Very Poor'}
 
-if st.button("Confirm"):
+if st.button("Click To Get Air Quality"):
     if name_or_geo == 'City':
         response_city = requests.get(
             url_city.format(city=city, api_key=api_key))
@@ -48,7 +46,7 @@ if st.button("Confirm"):
         aqi_overall = response_dict['list'][0]['main']['aqi']
         quality_comp = response_dict['list'][0]['components']
         st.write(
-            f'The overall Air Quality Index (AQI) is currently at {aqi_overall} which is {aqi_dict[aqi_overall]}.')
+            f'Overall Air Quality Index (AQI) is **{aqi_overall}** which is **{aqi_dict[aqi_overall]}**')
         pollutatns = []
         values = []
         quality = []
