@@ -7,7 +7,7 @@ import plotly.express as px
 import io
 
 
-df = pd.read_csv('UN_city_pop_projections_long.csv')
+df = pd.read_csv('data/UN_city_pop_projections_long.csv')
 df.drop(columns=['Unnamed: 0','Region','Country_Code','City_Code','data_sources_UN'],inplace=True)
 
 
@@ -55,7 +55,7 @@ def page2_function():
 
 
     # second 
-    df_pred = pd.read_csv('combined_dataset.csv')
+    df_pred = pd.read_csv('data/combined_dataset.csv')
     df_pred = df_pred.filter(regex=r'^(?!.*_UN_prediction)')
     years = df_pred.year.unique()
     new_columns = [col.replace('_prediction', '') for col in df_pred.columns]
