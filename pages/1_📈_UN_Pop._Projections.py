@@ -64,6 +64,7 @@ def page2_function():
     df_pred = pd.melt(df_pred, id_vars=['year'], var_name='City', value_name='population')
     df_pred.rename(columns={'population': 'population_pred'}, inplace=True)
     df_pred.set_index(['year', 'City'], inplace=True)
+    df_pred.population_pred = df_pred.population_pred * 1000
 
     df_city_pop = df[['year', 'City', 'population']]
     df_city_pop = df_city_pop[df_city_pop['year'].isin(years)]
