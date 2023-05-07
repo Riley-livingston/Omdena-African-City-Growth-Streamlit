@@ -7,8 +7,9 @@ import plotly.express as px
 import io
 
 
-df = pd.read_csv('data/UN_city_pop_projections_long.csv')
+df = pd.read_csv('UN_city_pop_projections_long.csv')
 df.drop(columns=['Unnamed: 0','Region','Country_Code','City_Code','data_sources_UN'],inplace=True)
+df.population = df.population * 1000
 
 
 # Define the function for each page
@@ -55,7 +56,7 @@ def page2_function():
 
 
     # second 
-    df_pred = pd.read_csv('data/combined_dataset.csv')
+    df_pred = pd.read_csv('combined_dataset.csv')
     df_pred = df_pred.filter(regex=r'^(?!.*_UN_prediction)')
     years = df_pred.year.unique()
     new_columns = [col.replace('_prediction', '') for col in df_pred.columns]
@@ -92,7 +93,7 @@ def page3_function():
     st.markdown("_This visualization showcases the top 10 cities with the highest projected populations for the year 2035. It provides insights into the cities that are expected to experience significant population growth and become major urban centers in the future._")
 
     top_cities = df[df['year']==2035].groupby(['City'])['population'].sum().nlargest(10)
-    top_cities = top_cities.sort_values(ascending=False)
+    top_cities = top_cities.sort_values(ascending=True)
 
     fig = px.bar(
     data_frame=top_cities,
