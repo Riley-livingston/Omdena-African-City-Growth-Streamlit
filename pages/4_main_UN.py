@@ -1,11 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np 
-import seaborn as sns 
-import matplotlib.pyplot as plt 
-import folium
-from folium.plugins import MarkerCluster
-from streamlit_folium import folium_static
 import plotly.express as px
 
 
@@ -18,8 +13,10 @@ df.drop(columns=['Unnamed: 0','Region','Country_Code','City_Code','data_sources_
 
 # Define the function for each page
 def page1_function():
-    st.subheader("Population development of cities in Selected Country")
-    st.markdown("_This visualization showcases the population development of cities in the selected country. The data includes both historical records and predictions provided by the United Nations (UN) in 2018. The UN predictions are valuable estimates based on extensive analysis of census data. By leveraging data from various sources, such as national statistical agencies, surveys, and official records, the UN generates projections that offer insights into future population trends._")
+    st.subheader("UN City Population Predictions")
+    st.markdown("_This plot shows the predicted population of different African cities from 1950 to 2035. The data from 2019 to 2035 are UN future predictions (that were made in 2018). The data from 1950 to 2018 is based on census data. The data from years that did not have a census is interpolated from the census years i.e. a smooth curve is fitted between the years when a census took place._")
+    
+
     # filter_country_list=df['Country_or_area'].unique()
     # filter_country=st.multiselect("Select Country",filter_country_list)
 
@@ -97,7 +94,6 @@ def page3_function():
     top_cities = df[df['year']==2035].groupby(['City'])['population'].sum().nlargest(10)
     top_cities = top_cities.sort_values(ascending=False)
 
-    fig = plt.figure(figsize=(15,8))
     fig = px.bar(
     data_frame=top_cities,
     x=top_cities.values,
@@ -113,25 +109,14 @@ def page4_function():
     st.subheader("City Populations Mapped: ")
     st.markdown("_This visualization displays the locations of cities on a map, along with their respective populations. It provides a geographical representation of cities and allows for a visual understanding of population distribution across different regions._")
 
-    map_center = [28.0339, 1.6596]
+    fig = px.scatter_mapbox(df, lat='Latitude', lon='Longitude', 
+                        size = 'population', animation_frame = 'year',
+                        hover_name='City', mapbox_style = 'open-street-map',
+                        zoom=1.6, height = 600, color_discrete_sequence=['red'])   
+    st.plotly_chart(fig) 
 
-    # Create a map object
-    map_algeria = folium.Map(location=map_center, zoom_start=4)
 
-    # Create a MarkerCluster object
-    marker_cluster = MarkerCluster().add_to(map_algeria)
 
-    # Loop through the dataframe and add markers to the map
-    for index, row in df.iterrows():
-        # Create a popup message
-        popup_message = f"{row['City']}, Population: {row['population']}"
-        
-        # Create a marker and add it to the marker cluster
-        marker = folium.Marker(location=[row['Latitude'], row['Longitude']], popup=popup_message)
-        marker.add_to(marker_cluster)
-
-    # Display the map
-    folium_static(map_algeria)
     st.subheader("Data Sources")
     st.markdown("- UN City Population Predictions taken from 2018 Revision of World Urbanization Prospects (https://population.un.org/wup/)")
 pages = {
