@@ -48,8 +48,8 @@ def page1_function():
         
 
 def page2_function():
-    st.subheader("City Population - UN predictions vs model predictions")
-    st.markdown("_This visualization compares the population predictions made by the United Nations (UN) with model predictions. It showcases the population trends of cities in the selected country and provides insights into the accuracy of the UN predictions compared to a model-based approach._")
+    st.subheader("City Population - UN Predictions vs ARIMA Predictions")
+    st.markdown("_This plot compares the population predictions made by the United Nations (UN) with a simple ARIMA time series model. It showcases the population trends of cities in the selected country and provides insights into the accuracy of the UN predictions compared to a model-based approach._")
 
     filter_country_list = df['City'].unique()
     filter_country = st.selectbox("Select City", filter_country_list)
@@ -90,7 +90,7 @@ def page2_function():
     st.markdown("- UN City Population Predictions taken from 2018 Revision of World Urbanization Prospects (https://population.un.org/wup/)")
 
 def page3_function():
-    st.subheader("Top 10 cities by population for 2035")
+    st.subheader("Top 10 Cities By Population For 2035")
     st.markdown("_This visualization showcases the top 10 cities with the highest projected populations for the year 2035. It provides insights into the cities that are expected to experience significant population growth and become major urban centers in the future._")
 
     top_cities = df[df['year']==2035].groupby(['City'])['population'].sum().nlargest(10)
@@ -108,8 +108,8 @@ def page3_function():
     st.markdown("- UN City Population Predictions taken from 2018 Revision of World Urbanization Prospects (https://population.un.org/wup/)")
 
 def page4_function():
-    st.subheader("City Populations Mapped: ")
-    st.markdown("_This visualization displays the locations of cities on a map, along with their respective populations. It provides a geographical representation of cities and allows for a visual understanding of population distribution across different regions._")
+    st.subheader("Map Of African City Populations: ")
+    st.markdown("_This map shows the change in population size of cities across Africa between 1950 to 2035 (where the data between 2019 and 2035 are UN predictions). The larger the marker for a city, the larger its population is._")
 
     fig = px.scatter_mapbox(df, lat='Latitude', lon='Longitude', 
                         size = 'population', animation_frame = 'year',
