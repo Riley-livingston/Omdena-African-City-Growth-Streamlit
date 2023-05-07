@@ -80,8 +80,8 @@ if st.button("Confirm"):
         quality_comp_dict = {'Pollutant': pollutatns,
                              'Concentration': values, 'Quality': quality}
         quality_comp_df = pd.DataFrame.from_dict(quality_comp_dict)
-        colors = {'good': 'green', 'Poor': 'red', 'Fair': 'orange',
-                  'Very Poor': 'magma', 'Moderate': 'yellow'}
+        colors = {'Good': 'green', 'Poor': 'crimson', 'Fair': 'orange',
+                  'Very Poor': 'red', 'Moderate': 'yellow'}
         fig = px.bar(quality_comp_df, facet_col='Pollutant', y='Concentration',
                      color='Quality',
                      color_discrete_map=colors, facet_col_spacing=0.05)
@@ -99,7 +99,10 @@ if st.button("Confirm"):
         fig.layout.yaxis4.range = (0, 350)
         fig.layout.yaxis5.range = (0, 75)
         fig.layout.yaxis6.range = (0, 200)
-        st.plotly_chart(fig, use_container_width=True)
+        
+        for annotation in fig.layout.annotations:
+            annotation.text = ''
+        st.plotly_chart(fig, use_container_width=True, theme = None)
 
     else:
         st.error("Error:", response_air.status_code, response_air.text)
