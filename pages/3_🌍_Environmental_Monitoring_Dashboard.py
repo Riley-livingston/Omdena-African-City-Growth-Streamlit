@@ -11,8 +11,7 @@ import plotly.express as px
 '''
 st.markdown('Get real time air quality data anywhere in the world by providing a **city name** or **latitude / longitude** coordinate below.<br><br>We provide a basic Air Quality Index and a breakdown of the levels of polluting gases, such as Carbon monoxide (CO), Nitrogen monoxide (NO), Nitrogen dioxide (NO<sub>2</sub>), Ozone (O<sub>3</sub>), Sulphur dioxide (SO<sub>2</sub>), Ammonia (NH<sub>3</sub>), and particulates (PM<sub>2.5</sub> and PM<sub>10</sub>). This dashboard is powered by <a href="https://openweathermap.org/api">openweathermap</a>.', unsafe_allow_html=True)
 
-#api_key = st.secrets['api_key']
-api_key = '3cbbcf145d5897e0b33b572a78f1a0c5'
+api_key = st.secrets['api_key']
 url_city = 'http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=5&appid={api_key}'
 url_air = 'http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={api_key}'
 
