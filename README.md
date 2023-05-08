@@ -1,5 +1,5 @@
 # temporary_streamlit_1
-This repository contains the Contents for the final deliverable, developed by members of the Omdena Nairobi, Kenya Chapter working on predictive Modeling for Urban growth
+This repository contains the Contents for the final deliverable, developed by members of the Omdena Nairobi, Kenya Chapter working on predictive modeling for urban growth.
 
 https://omdena.com/projects/inpredictive-modelling-for-urban-growth/
 
