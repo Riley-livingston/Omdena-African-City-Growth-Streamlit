@@ -55,24 +55,24 @@ if st.button("Click To Get Air Quality"):
             if x not in ['no', 'nh3']:
                 if value < air_comp_qualitative[x][0]:
                     pollutatns.append(x)
-                    values.append(air_comp_qualitative[x][0])
+                    values.append(value)
                     quality.append(air_comp_qualitative["Qualitative Name"][0])
 
                 elif value < air_comp_qualitative[x][1]:
                     pollutatns.append(x)
-                    values.append(air_comp_qualitative[x][0])
+                    values.append(value)
                     quality.append(air_comp_qualitative["Qualitative Name"][1])
                 elif value < air_comp_qualitative[x][2]:
                     pollutatns.append(x)
-                    values.append(air_comp_qualitative[x][0])
+                    values.append(value)
                     quality.append(air_comp_qualitative["Qualitative Name"][2])
                 elif value < air_comp_qualitative[x][3]:
                     pollutatns.append(x)
-                    values.append(air_comp_qualitative[x][0])
+                    values.append(value)
                     quality.append(air_comp_qualitative["Qualitative Name"][3])
                 else:
                     pollutatns.append(x)
-                    values.append(air_comp_qualitative[x][0])
+                    values.append(value)
                     quality.append(air_comp_qualitative["Qualitative Name"][4])
 
         quality_comp_dict = {'Pollutant': pollutatns,
@@ -80,8 +80,10 @@ if st.button("Click To Get Air Quality"):
         quality_comp_df = pd.DataFrame.from_dict(quality_comp_dict)
         colors = {'Good': 'green', 'Poor': 'crimson', 'Fair': 'orange',
                   'Very Poor': 'red', 'Moderate': 'yellow'}
-        fig = px.bar(quality_comp_df, facet_col='Pollutant', y='Concentration',
-                     color='Quality',
+        labels = {'Concentration':'Concentration (μg/m<sup>3</sup>)'}
+        order = {'Quality':['Good', 'Fair', 'Moderate', 'Poor', 'Very Poor']}
+        fig = px.bar(quality_comp_df, facet_col='Pollutant', y='Concentration', category_orders = order,
+                     color='Quality', labels = labels,
                      color_discrete_map=colors, facet_col_spacing=0.05)
         fig.update_xaxes(matches=None, showticklabels=False)
         fig.update_yaxes(matches=None, showticklabels=True)
@@ -91,12 +93,12 @@ if st.button("Click To Get Air Quality"):
         fig.layout.xaxis4.title.text = 'SO2'
         fig.layout.xaxis5.title.text = 'PM2.5'
         fig.layout.xaxis6.title.text = 'PM10'
-        fig.layout.yaxis.range = (0, 15400)
-        fig.layout.yaxis2.range = (0, 200)
-        fig.layout.yaxis3.range = (0, 180)
-        fig.layout.yaxis4.range = (0, 350)
-        fig.layout.yaxis5.range = (0, 75)
-        fig.layout.yaxis6.range = (0, 200)
+        fig.layout.yaxis.range = (0, 17000)
+        fig.layout.yaxis2.range = (0, 220)
+        fig.layout.yaxis3.range = (0, 200)
+        fig.layout.yaxis4.range = (0, 385)
+        fig.layout.yaxis5.range = (0, 85)
+        fig.layout.yaxis6.range = (0, 220)
         
         for annotation in fig.layout.annotations:
             annotation.text = ''
